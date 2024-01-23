@@ -1,5 +1,17 @@
 #include<iostream>
 using namespace std;
+
+// Function to find hcf using recursion (subtraction method)
+int gcdIter(int a, int b){
+    while( b != 0){
+        int temp = b;
+        b = a%b;
+        a = temp;
+    }
+
+    return a;
+}
+
 // Function to find hcf using recursion (subtraction method)
 int gcdSub(int a, int b){
     if(b > a) return gcdSub(b, a);
@@ -28,7 +40,9 @@ int main(){
 
     int ans = gcd(x, y);
     int ansSub = gcdSub(x, y);
+    int ansItr = gcdIter(x, y);
     cout<<ans<<endl;
     cout<<ansSub<<endl;
+    cout<<ansItr<<endl;
     return 0;
 }
